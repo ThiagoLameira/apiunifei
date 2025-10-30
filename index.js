@@ -9,9 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use(bodyparser.json());
-dotenv.config();
+const config = require("./config")
+//dotenv.config();
 //definição de conexão
-const connectionString = process.env.DATABASE_URL
+const connectionString = config.DATABASE_URL
 const client = new Client(connectionString);
 //Primeira conexão
 client.connect((err) => {
@@ -133,8 +134,8 @@ app.put("/usuarios/:id", (req, res) => {
 });
 
 //torna a API ativa na porta 9082
-app.listen(process.env.PORT, () =>
-    console.log("Servidor funcionando na porta " + process.env.PORT)
+app.listen(config.PORT, () =>
+    console.log("Servidor funcionando na porta " + config.PORT)
 );
 //para o vercel acahr o nome da API
 module.exports = app;
