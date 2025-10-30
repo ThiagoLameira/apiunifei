@@ -135,6 +135,6 @@ app.put("/usuarios/:id", (req, res) => {
 //torna a API ativa na porta 9082
 app.listen(process.env.PORT, () =>
     console.log("Servidor funcionando na porta " + process.env.PORT)
-); 
+);
 //para o vercel acahr o nome da API
 module.exports = app;
